@@ -11,7 +11,7 @@
             <div class="col-lg-10 mx-auto">
                 <div class="row">
                     <div class="col-lg-6 d-flex align-items-center">
-                        <img src="{{ asset('front/images/hero image jewish.svg')}}" class="img-fluid mx-auto" alt="">
+                        <img src="{{ asset('front/images/taxdocs.svg')}}" class="img-fluid mx-auto" alt="">
                     </div>
                     <div class="col-lg-6 d-flex align-items-center justify-content-center">
                         <div class="inner w-75">
@@ -90,7 +90,7 @@
                     <div class="row">
                         
                         <div class="col-lg-12">
-                            <div class="plan-title">Individual plan</div>
+                            <div class="plan-title">Self Employed £5.95/Month</div>
                             <ul class="list-theme">
 
                                 @foreach (\App\Models\Option::where('plan','1')->get() as $item)
@@ -107,7 +107,7 @@
                 <div class="col-lg-6 col-md-6 upperGap">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="plan-title">Business plan</div>
+                            <div class="plan-title">Limited Company £10.95/Month</div>
                             <ul class="list-theme">
                                 @foreach (\App\Models\Option::where('plan','2')->get() as $item2)
                                 <li>{{ $item2->title }}</li>

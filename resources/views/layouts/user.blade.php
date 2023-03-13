@@ -52,6 +52,12 @@
                             Payroll
                         </a>
                     </li>
+                    <li class="nav-item {{ (request()->is('user/invoice*')) ? 'active' : '' }}">
+                        <a href="{{route('user.invoice')}}">
+                            <span class="iconify" data-icon="icon-park-outline:transaction"></span>
+                            Invoice
+                        </a>
+                    </li>
                    
                 </ul>
             </nav>
@@ -105,7 +111,7 @@
                     </ul>
                 </div>
                 <div class="p-2 flex-fill bd-highlight">
-                    <img src="{{ asset('user/images/company-logo-your-logo.png')}}" width="160px">
+                    <img src="{{ asset('images/company/'.\App\Models\CompanyDetail::where('id',1)->first()->header_logo)}}" width="160px">
                 </div>
                 <div class="p-2 d-flex align-items-center footerContact">
                     {{-- <a href="" class="mx-2 text-decoration-none text-white">Help</a>

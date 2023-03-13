@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PayrollController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\AdminController;
@@ -78,12 +79,22 @@ Route::group(['prefix' =>'user/', 'middleware' => ['auth', 'is_user']], function
     Route::get('active-account', [UserController::class, 'activeAccount']);
     Route::get('delete-account/{id}', [UserController::class, 'accountDelete']);
 
+
     
     // payroll
     Route::get('/payroll', [PayrollController::class, 'index'])->name('user.payroll');
     Route::get('/payroll-details/{id}', [PayrollController::class, 'payrollDetails'])->name('user.payrolldtl');
     Route::post('/payroll', [PayrollController::class, 'payrollStore']);
     Route::post('/payroll-update', [PayrollController::class, 'payrollUpdate']);
+
+    // new user
+    Route::get('/new-user', [UserController::class, 'getNewUser'])->name('user.newuser');
+    Route::post('/new-user', [UserController::class, 'newUserStore']);
+    Route::post('/get-new-users', [UserController::class, 'getUserDetails']);
+
+    
+    // invoice
+    Route::get('/invoice', [InvoiceController::class, 'getInvoice'])->name('user.invoice');
 
 
 });

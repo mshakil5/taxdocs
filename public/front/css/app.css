@@ -152,7 +152,7 @@ body {
   }
 }
 .banner .intro-title {
-  font-size: 7rem;
+  font-size: 4rem;
   font-family: "DarkerGrotesque-bold";
   color: #18988B;
   line-height: 0.8;
@@ -723,7 +723,7 @@ body::-webkit-scrollbar-thumb {
   }
 }
 .list-theme li {
-  font-size: 40px;
+  font-size: 25px;
   line-height: 1;
   color: #003057;
   margin-bottom: 15px;

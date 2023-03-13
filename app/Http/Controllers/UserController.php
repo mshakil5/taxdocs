@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Role;
+use App\Models\NewUser;
 use App\Models\BankAccountDetail;
 Use Image;
 use Illuminate\support\Facades\Auth;
@@ -215,6 +215,34 @@ class UserController extends Controller
         }
         else{
             return response()->json(['success'=>false,'message'=>'Update Failed']);
+        }
+    }
+
+    
+
+    public function newUserStore(Request $request)
+    {
+        $data = new NewUser;
+        $data->user_id = Auth::user()->id;
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->address = $request->address;
+        if ($data->save()) {
+            $message ="<div class='alert alert-success'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Data Created Successfully.</b></div>";
+            return response()->json(['status'=> 300,'message'=>$message]);
+        }
+        else{
+            return response()->json(['status'=> 303,'message'=>'Server Error!!']);
+        }
+    }
+
+    public function getUserDetails(Request $request)
+    {
+        $userDtl = NewUser::where('id', '=', $request->uid)->first();
+        if(empty($userDtl)){
+            return response()->json(['status'=> 303,'message'=>"No data found"]);
+        }else{
+            return response()->json(['status'=> 300,'username'=>$userDtl->name,'useremail'=>$userDtl->email,'user_id'=>$userDtl->id,'address'=>$userDtl->address]);
         }
     }
 }

@@ -241,7 +241,7 @@
 @section('script')
 <script type="text/javascript">
     function removeRow(event) {
-            event.target.parentElement.parentElement.remove();
+        event.target.parentElement.parentElement.remove();
     }
 </script>
 <script>
